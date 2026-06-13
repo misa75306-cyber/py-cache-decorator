@@ -1,10 +1,10 @@
-from typing import Callable
+from typing import Callable, Any
 
 
 def cache(func: Callable) -> Callable:
     storage = {}
 
-    def wrapper(*args, **kwargs) -> Callable:
+    def wrapper(*args, **kwargs) -> Any:
         key = (args, tuple(sorted(kwargs.items())))
 
         if key in storage:
